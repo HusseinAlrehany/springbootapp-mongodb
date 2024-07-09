@@ -1,7 +1,10 @@
 package com.alrehany.joblisting.models;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Arrays;
 
+@Document(collection = "JopPost")
 public class Post {
 
     private String profile;

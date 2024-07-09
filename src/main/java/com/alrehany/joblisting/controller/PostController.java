@@ -3,9 +3,7 @@ package com.alrehany.joblisting.controller;
 import com.alrehany.joblisting.models.Post;
 import com.alrehany.joblisting.repos.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +30,11 @@ public class PostController {
     public List<Post> getAllPosts(){
 
         return  postRepository.findAll();
+    }
+
+    @PostMapping("/post")
+    public Post addPost(@RequestBody Post thePost){
+        return postRepository.save(thePost);
     }
 
 }
